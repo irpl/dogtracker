@@ -10,3 +10,8 @@ var circle = L.circle([18.004801, -76.748993], {
     fillOpacity: 0.5,
     radius: 15
 }).addTo(map);
+
+test = () => {
+    fetch("http://api.ipify.org?format=json")
+        .then(res => console.log(res))
+}
