@@ -12,6 +12,5 @@ var circle = L.circle([18.004801, -76.748993], {
 }).addTo(map);
 
 test = () => {
-    fetch("http://api.ipify.org?format=json")
-        .then(res => console.log(res))
+    fetch("https://swapi.co/api/people/1").then(res => res.json()).then(data => console.log(data))
 }
