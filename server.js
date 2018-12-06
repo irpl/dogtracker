@@ -8,6 +8,16 @@ const path = require('path');
 Data = require("./models/Data");
 
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+    if (req.is('text/*')) {
+        req.text = '';
+        req.setEncoding('utf-8');
+        req.on('data', (chunk) => {req.text+=chunk;});
+        req.on('end', next);
+    } else {
+        next();
+    }
+})
 app.use(express.static(path.join(__dirname,"public")));
 
 
@@ -36,14 +46,16 @@ app.get("/data",(req,res) =>{
 // Post Keyword ( adds data --  posting information to the server )
 
 app.post("/data", (req,res)=>{
-    var newData = new Data({
-        latitude: req.body.latitude,
-        longitude: req.body.longitude
-    });
+    console.log(req.text);
+    res.send('phillip');
+    // var newData = new Data({
+    //     latitude: req.body.latitude,
+    //     longitude: req.body.longitude
+    // });
 
-    newData
-        .save()
-        .then(res.json({success: true}))
+    // newData
+    //     .save()
+    //     .then(res.json({success: true}))
 
 })
 
