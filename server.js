@@ -48,7 +48,7 @@ app.get("/data",(req,res) =>{
 app.post("/data", (req,res)=>{
     var data= req.text;
     data = data.replace("\n","");
-    console.log(req.text);
+    console.log(data);
     res.send('justine');
 
     // var newData = new Data({
