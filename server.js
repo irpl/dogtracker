@@ -46,6 +46,8 @@ app.get("/data",(req,res) =>{
 // Post Keyword ( adds data --  posting information to the server )
 
 app.post("/data", (req,res)=>{
+    var data= req.text;
+    data = data.replace("\r\n","");
     console.log(req.text);
     res.send('justine');
 
