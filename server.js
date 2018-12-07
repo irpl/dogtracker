@@ -48,17 +48,20 @@ app.get("/data",(req,res) =>{
 app.post("/data", (req,res)=>{
     var data= req.text;
     data = data.trim();
+    [atcom,info]=data.split(" ");
+    var array= info.split(",");
+    var latitude=array[3];
+    var longitude=array[4];
     console.log(data);
-    res.send('justine');
 
-    // var newData = new Data({
-    //     latitude: req.body.latitude,
-    //     longitude: req.body.longitude
-    // });
+    var newData = new Data({
+        latitude: latitude,
+        longitude: longitude
+    });
 
-    // newData
-    //     .save()
-    //     .then(res.json({success: true}))
+    newData
+        .save()
+        .then(res.send('justine'))
 
 })
 
