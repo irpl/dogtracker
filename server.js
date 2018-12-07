@@ -47,7 +47,8 @@ app.get("/data",(req,res) =>{
 
 app.post("/data", (req,res)=>{
     console.log(req.text);
-    res.send('phillip');
+    res.send('justine');
+
     // var newData = new Data({
     //     latitude: req.body.latitude,
     //     longitude: req.body.longitude
