@@ -8,7 +8,7 @@ var circle = L.circle([18.004801, -76.748993], {
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 0.5,
-    radius: 5
+    radius: 10
 }).addTo(map);
 
 // The marker that shows where the dog is at present time
