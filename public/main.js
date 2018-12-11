@@ -11,6 +11,11 @@ var circle = L.circle([18.004801, -76.748993], {
     radius: 15
 }).addTo(map);
 
+// The marker that shows where the dog is at present time
+
+var marker = L.marker([18.004801, -76.458993]).addTo(map);
+
+
 test = () => {
     fetch("https://swapi.co/api/people/1").then(res => res.json()).then(data => console.log(data))
 }
