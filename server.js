@@ -73,8 +73,8 @@ app.post("/data", (req,res)=>{
     
     newData
         .save()
-        .then(res.send('justine'))
         .catch(console.log("Error Occured"))
+        .then(res.send('justine'))
   
 })
 
