@@ -50,7 +50,7 @@ app.get("/recentdata",(req,res) =>{
     .find({})
     .sort({date:'desc'})
     .limit(1)
-    .then((x)=>res.json(x))
+    .then((x)=>res.json(x[0]))
 })
 
 isInRange=(latitude,longitude)=>{
