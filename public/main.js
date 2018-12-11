@@ -17,5 +17,5 @@ var marker = L.marker([18.004801, -76.458993]).addTo(map);
 
 
 test = () => {
-    fetch("https://swapi.co/api/people/1").then(res => res.json()).then(data => console.log(data))
+    fetch("http://philliplogan.com:5000/recentdata").then(res => res.json()).then(data => console.log(data))
 }
