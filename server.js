@@ -29,6 +29,8 @@ mongoose
 
 app.get("/", (req,res)=>{
     app.send("/index.html");
+    console.log("Someone has accessed GET/...")
+
 })
 // Get keyword (asking the server for data)
 app.get("/data",(req,res) =>{ 
@@ -39,12 +41,19 @@ app.get("/data",(req,res) =>{
         .then((x)=>res.json(x));
     //res.send("You Tried to access get");
     // see on the terminal everytime someone asccess get
-    console.log("Someone has accessed GET/...")
 
 });
 
-// Post Keyword ( adds data --  posting information to the server )
+app.get("/recentdata",(req,res) =>{ 
 
+    Data
+    .find({})
+    .sort({date:'desc'})
+    .limit(1)
+    .then((x)=>res.json(x))
+})
+
+// Post Keyword ( adds data --  posting information to the server )
 app.post("/data", (req,res)=>{
     var data= req.text;
     data = data.trim();
