@@ -17,11 +17,17 @@ var circle = L.circle([18.004801, -76.748993], {
 setInterval(()=>{
     test();
 }, 3000);
+var marker
+fetch("http://philliplogan.com:5000/recentdata")
+        .then(res => res.json())
+        .then(data => {
+            marker = L.marker([data.latitude, data.longitude]).addTo(map);
+        })
 
 test = () => {
     fetch("http://philliplogan.com:5000/recentdata")
         .then(res => res.json())
         .then(data => {
-            var marker = L.marker([data.latitude, data.longitude]).addTo(map);
+            console.log(marker)
         })
 }
