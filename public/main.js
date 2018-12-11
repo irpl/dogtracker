@@ -13,11 +13,13 @@ var circle = L.circle([18.004801, -76.748993], {
 
 // The marker that shows where the dog is at present time
 
-var marker = L.marker([18.004801, -76.458993]).addTo(map);
+
 
 
 test = () => {
     fetch("http://philliplogan.com:5000/recentdata")
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            var marker = L.marker([data.latitude, data.longitude]).addTo(map);
+        })
 }
