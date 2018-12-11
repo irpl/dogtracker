@@ -29,5 +29,6 @@ test = () => {
         .then(res => res.json())
         .then(data => {
             console.log(marker)
+            marker.setLatLng([data.latitude,data.longitude])
         })
 }
