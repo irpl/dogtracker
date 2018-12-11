@@ -14,7 +14,9 @@ var circle = L.circle([18.004801, -76.748993], {
 // The marker that shows where the dog is at present time
 
 
-
+setInterval(()=>{
+    test();
+}, 3000);
 
 test = () => {
     fetch("http://philliplogan.com:5000/recentdata")
