@@ -63,13 +63,15 @@ app.post("/data", (req,res)=>{
     var longitude=array[4];
     console.log(data);
 
-    var newData = new Data({
-        latitude: latitude,
-        longitude: longitude
-    });
-
-
-        newData
+    try{
+        var newData = new Data({
+            latitude: latitude,
+            longitude: longitude
+        });
+    }
+    catch(e){console.log("Error Occured")}
+    
+    newData
         .save()
         .then(res.send('justine'))
         .catch(console.log("Error Occured"))
