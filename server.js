@@ -68,13 +68,12 @@ app.post("/data", (req,res)=>{
         longitude: longitude
     });
 
-    try{
+
         newData
         .save()
-        .then(res.send('justine'))  
-    }
-    catch(e)
-    {}
+        .then(res.send('justine'))
+        .catch(console.log("Error Occured"))
+  
 })
 
 // Put Keyword (Updates data -- New value to update previous value)
