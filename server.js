@@ -53,6 +53,10 @@ app.get("/recentdata",(req,res) =>{
     .then((x)=>res.json(x))
 })
 
+isInRange=(latitude,longitude)=>{
+    return true;
+}
+
 // Post Keyword ( adds data --  posting information to the server )
 app.post("/data", (req,res)=>{
     var data= req.text;
@@ -63,18 +67,22 @@ app.post("/data", (req,res)=>{
     var longitude=array[4];
     console.log(data);
 
-    try{
-        var newData = new Data({
-            latitude: latitude,
-            longitude: longitude
-        });
-    }
-    catch(e){console.log("Error Occured")}
+    let response = isInRange(latitude, longitude)
+
+    var newData = new Data({
+        latitude: latitude,
+        longitude: longitude
+    });
+
     
-    newData
-        .save()
-        .catch(console.log("Error Occured"))
-        .then(res.send('justine'))
+
+    newData.save((err) => {
+        if (err)res.send("error")
+        else res.send(response)
+    })        
+
+    
+    
   
 })
 
