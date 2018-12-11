@@ -54,7 +54,16 @@ app.get("/recentdata",(req,res) =>{
 })
 
 isInRange=(latitude,longitude)=>{
-    return true;
+// compare lat and long with a or 
+    latitude = parseFloat(latitude)
+    longitude = parseFloat(longitude)
+
+    var comparison;
+    if (latitude == -76.748988){
+        return 'false@'
+    }
+
+    return 'true@';
 }
 
 // Post Keyword ( adds data --  posting information to the server )
@@ -74,10 +83,8 @@ app.post("/data", (req,res)=>{
         longitude: longitude
     });
 
-    
-
     newData.save((err) => {
-        if (err)res.send("error")
+        if (err)res.send("error@")
         else res.send(response)
     })        
 
