@@ -59,7 +59,7 @@ isInRange=(latitude,longitude)=>{
     longitude = parseFloat(longitude)
 
     var comparison;
-    if (longitude < -76.748809){
+    if (longitude < -76.748809 || longitude > -76.749145){
         return 'false@'
     }
 
