@@ -55,13 +55,13 @@ app.get("/recentdata",(req,res) =>{
 
 isInRange=(latitude,longitude)=>{
 // compare lat and long with a or 
-    latitude = parseFloat(latitude)
-    longitude = parseFloat(longitude)
+    // latitude = parseFloat(latitude)
+    // longitude = parseFloat(longitude)
 
-    var comparison;
-    if (latitude == -76.748988){
-        return 'false@'
-    }
+    // var comparison;
+    // if (latitude < -76.748988){
+    //     return 'false@'
+    // }
 
     return 'true@';
 }
